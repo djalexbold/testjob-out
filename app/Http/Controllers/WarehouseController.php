@@ -9,24 +9,21 @@ use Illuminate\Support\Facades\DB;
 
 class WarehouseController extends Controller
 {
-    public function indexUp(Request $request)
+    //Просмотреть список складов
+    public function index(Request $request)
     {
         $query = Warehouse::query();
 
         if ($request->filled('search')) {
             $query->where('name', 'LIKE', '%' . $request->search . '%');
         }
-        return view('warehouses.indexUp');
-    }
 
-    public function index(): Response
-    {
-        return DB::table('warehouses')
-            ->orderBy('name')
+        $query->orderBy('name')
             ->paginate(5)
             ->through(fn($warehouse) => [
                 'id' => $warehouse->id,
                 'name' => $warehouse->name,
             ]);
+        return view('warehouses.indexUp');
     }
 }
