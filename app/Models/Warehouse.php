@@ -12,18 +12,7 @@ class Warehouse extends Model
 {
     public $timestamps = false;
     use HasFactory;
-
+    protected $table = 'warehouses';
     protected $fillable = ['name'];
 
-
-    public function index(): Response
-    {
-        return DB::table('warehouses')
-            ->orderBy('name')
-            ->paginate(5)
-            ->through(fn($warehouse) => [
-                'id' => $warehouse->id,
-                'name' => $warehouse->name,
-            ]);
-    }
 }
