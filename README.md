@@ -2,24 +2,9 @@
 
 ## Project for Maxmoll
 
-Ссылки на выполненные тестовые задания, а также возникшие вопросы присылать:
-
-Telegram:
-@F1_GTR Евгений
-
-Обязательно напишите имя и фамилию!
-
 php artisan migrate
 
-php artisan make:factory ProductFactory --model=Product
-
-php artisan make:factory WarehouseFactory --model=Warehouse
-
 php artisan db:seed
-
-php artisan make:migration create_products_table
-
-php artisan make:migration create_orders_table
 
 
 ### My contacts
