@@ -10,15 +10,42 @@ class OrderController extends Controller
     //Получить список заказов (с фильтрами и настраиваемой пагинацией)
     public function index(Request $request)
     {
-        $query = Order::query();
+        $order = Order::query();
 
         if ($request->filled('search')) {
-            $query->where('customer', 'LIKE', '%' . $request->search . '%');
+            $order->where('customer', 'LIKE', '%' . $request->search . '%');
         }
 
-        $query->paginate(5);
+        $order->paginate(5);
+        return Order::all();
+    }
+    public function show(Order $order)
+    {
+        return $order;
+    }
 
-        return view('orders.index');
+    //Создать заказ
+    public function store(Request $request)
+    {
+        $order = Order::create($request->all());
+
+        return response()->json($order);
+    }
+
+    //Обновить заказ
+    public function update(Request $request, Order $order)
+    {
+        $order->update($request->all());
+
+        return response()->json($order);
+    }
+
+    // удалить заказ
+    public function delete(Order $order)
+    {
+        $order->delete();
+
+        return response()->json(null, 204);
     }
 
 }

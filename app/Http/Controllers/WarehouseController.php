@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Warehouse;
-use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class WarehouseController extends Controller
 {
