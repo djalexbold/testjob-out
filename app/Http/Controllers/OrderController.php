@@ -8,17 +8,11 @@ use Illuminate\Http\Request;
 class OrderController extends Controller
 {
     //Получить список заказов (с фильтрами и настраиваемой пагинацией)
-    public function index(Request $request)
+    public function index()
     {
-        $order = Order::query();
-
-        if ($request->filled('search')) {
-            $order->where('customer', 'LIKE', '%' . $request->search . '%');
-        }
-
-        $order->paginate(5);
         return Order::all();
     }
+
     public function show(Order $order)
     {
         return $order;
