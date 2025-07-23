@@ -1,6 +1,6 @@
 # TestJob
 
-## Project for Maxmoll
+## Project temp
 
 create database with name: "testjob"
 
