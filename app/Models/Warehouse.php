@@ -10,7 +10,6 @@ class Warehouse extends Model
 {
     public $timestamps = false;
     use HasFactory;
-    protected $table = 'warehouses';
     protected $fillable = ['name'];
 
 }
